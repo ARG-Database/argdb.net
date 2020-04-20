@@ -1,0 +1,237 @@
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main div{
+  padding-block: 0.25em;
+}
+
+main div#active-tags-container{
+  max-width: 40%;
+}
+
+main ul#active-tags-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+main ul#active-tags-list li{
+  display: inline;
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+  border-radius: 1em;
+  background: lightgrey;
+  margin: 0.125em;
+  
+  /*prevent text selection*/
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+main ul#active-tags-list li.active-tag-mandatory-for-query{
+  background: #e15f5f;
+}
+
+div#active-tags-container{
+  margin-block: 0.5em;
+  min-height: 2em;
+}
+
+ul#tag-input-autocomplete-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul#tag-input-autocomplete-list li{
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+  border-radius: 1em;
+  margin: 0.125em;
+  background: lightgrey;
+  
+  /*prevent text selection*/
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  
+  cursor: copy;
+}
+
+ul#tag-input-autocomplete-list li.selected-autocomplete{
+  background: darkgrey;
+}
+
+.query-in-progress{
+  cursor: progress;
+}
+
+ul#query-result-list{
+  list-style-type: none;
+  padding: 0;
+}
+
+li.query-result{
+  border: solid darkgrey;
+  border-radius: 0.5em;
+  border-width: 0.125em;
+  margin-block: 0.5em;
+}
+
+.query-result-title{
+  float: left;
+  padding-right: 1em;
+}
+
+img.icon{
+  max-width: 2em; max-height: 2em;
+  padding: 0.25em;
+}
+
+img.icon-small{
+  max-width: 1.5em; max-height: 1.5em;
+  padding: 0.25em;
+}
+
+img.query-result-source-host{
+  float: left;
+  cursor: help;
+}
+
+img.query-result-arg{
+  clear: left;
+  float: left;
+  cursor: help;
+}
+
+span.query-result-source-type{
+  float: right;
+  padding-right: 0.25em;
+}
+
+.query-result-source-date{
+  float: right;
+  clear: left;
+  padding-right: 0.25em;
+}
+
+.query-result-clear{
+  clear: left;
+}
+
+#show-advanced-options-text{
+  position:absolute;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#tag-inputs-container span{
+  margin: 0;
+  padding: 0;
+  
+  /*prevent text selection*/
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+#show-advanced-options-button{
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 1s;
+  position: relative;
+}
+
+#show-advanced-options-button:hover{
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+#tag-inputs-container:hover #show-advanced-options-text{
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+
+input{
+  border: none;
+  height: 2em;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  background: whitesmoke;
+}
+
+button{
+  height: 1.5em;
+  box-sizing: border-box;
+  border: none;
+}
+
+.advanced-options-left{
+  float: left;
+}
+
+.advanced-options-right{
+  float: right;
+}
+
+
+
+.advanced-options ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  /*prevent text selection*/
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.advanced-options input{
+  position: relative;
+  top: 0.6em;
+  margin: 0;
+  margin-right: 0.5em;
+}
+
+#advanced-options-category-tabs-container ul.advanced-options-category-tabs{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#advanced-options-category-tabs-container ul.advanced-options-category-tabs > li{
+  display: inline;
+  margin-inline: 1em;
+  padding: 0.25em;
+  background: lightgrey;
+  cursor: pointer;
+  
+  /*prevent text selection*/
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+#advanced-options-category-tabs-container ul.advanced-options-category-tabs > li.active-tab{
+  background: darkgrey;
+}
+
+.advanced-options-container{
+  display: none;
+}
+
+.advanced-options-container.advanced-options-container-active{
+  display: block;
+}
