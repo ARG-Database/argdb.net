@@ -1,1 +1,126 @@
-placeholder file
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ARGDB - Search</title>
+    <link rel="stylesheet" href="../css/argdb.css">
+    <link rel="stylesheet" href="../css/pages/search/search.css">
+    <script src="../scripts/search/search_autocomplete.js" charset="utf-8"></script>
+    <script src="../scripts/search/search_api_query.js" charset="utf-8"></script>
+    <script src="../scripts/search/search_result_page_builder.js" charset="utf-8"></script>
+    <script src="../scripts/search/search.js" charset="utf-8"></script>
+  </head>
+  <body onload="search_init();">
+    <header>
+      <nav class="header-nav-left">
+        <ul>
+          <li> <a href="main">Main</a> </li>
+          <li> <a href="search">Search</a> </li>
+        </ul>
+      </nav>
+      <span id="argdb-header-title">Clue Search</span>
+      <nav class="header-nav-right">
+        <ul>
+          <li> <a href="contribute">Contribute</a> </li>
+          <li> <a href="about">About</a> </li>
+          <li> <a href="faq">FAQ</a> </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="active-tags-container">
+        <ul id="active-tags-list"></ul>
+      </div>
+      <div id="tag-inputs-container">
+        <input id="tag-input" type="text" value="" placeholder="Enter Tag Name...">
+        <button id="add-tag-button" type="button" title="add a tag to the search/filter">Add Tag</button>
+        <button id="tag-query-submit-button" type="button">Search Clues</button>
+        <span id="show-advanced-options-button" class="button">&#x25BE;</span>
+        <span id="show-advanced-options-text">show advanced options</span>
+      </div>
+      <div id="advanced-options-category-tabs-container" hidden="hidden">
+        <ul class="advanced-options-category-tabs">
+          <li id="category-tab-source">Source</li>
+          <li id="category-tab-category">Category</li>
+          <li id="category-tab-date">Date</li>
+        </ul>
+      </div>
+      <div id="advanced-options-container-container" hidden="hidden">
+        <!-- add class 'advanced-options-container-active' to a 'advanced-options-container'-div to make it visible -->
+        
+        <div id="query-constraints-date" class="advanced-options-container">
+          <div class="advanced-options advanced-options-left">
+            <fieldset>
+              <legend>found after</legend>
+              <input id="input-after" type="date">
+            </fieldset>
+          </div>
+          <div class="advanced-options advanced-options-right">
+            <fieldset>
+              <legend >found before</legend>
+              <input id="input-before" type="date">
+            </fieldset>
+          </div>
+        </div>
+        
+        <div id="query-constraints-category" class="advanced-options-container">
+          <div class="advanced-options advanced-options-left">
+            <fieldset>
+              <legend>ARG</legend>
+              <ul id="input-args">
+                <li><input type="checkbox">other</li>
+                <li><input type="checkbox">Cyberpunk 2077</li>
+              </ul>
+            </fieldset>
+          </div>
+          <div class="advanced-options advanced-options-right">
+            <fieldset>
+              <legend title="Any Tags that are in the specified category">Category</legend>
+              <ul id="input-cats">
+                <li><input type="checkbox">Character</li>
+                <li><input type="checkbox">Organization</li>
+                <li><input type="checkbox">Location</li>
+                <li><input type="checkbox">Historic Event</li>
+                <li><input type="checkbox">File Format</li>
+              </ul>
+            </fieldset>
+          </div>
+        </div>
+        
+        <div id="query-constraints-media" class="advanced-options-container">
+          <div id="source-type-options" class="advanced-options advanced-options-left">
+            <fieldset>
+              <legend>Source Type</legend>
+              <ul id="input-type">
+                <li><input type="checkbox">Video</li>
+                <li><input type="checkbox">Image</li>
+                <li><input type="checkbox">Website</li>
+                <li><input type="checkbox">Text</li>
+                <li><input type="checkbox">Audio</li>
+                <li><input type="checkbox">File</li>
+                <li><input type="checkbox">String</li>
+              </ul>
+            </fieldset>
+          </div>
+          <div id="source-host-options" class="advanced-options advanced-options-right">
+            <fieldset>
+              <legend>Source Host</legend>
+              <ul  id="input-host">
+                <li><input type="checkbox">ARG related</li>
+                <li><input type="checkbox">Youtube</li>
+                <li><input type="checkbox">Twitter</li>
+                <li><input type="checkbox">Discord</li>
+                <li><input type="checkbox">Reddit</li>
+              </ul>
+            </fieldset>
+          </div>
+        </div>
+        
+      </div>
+      <ul id="tag-input-autocomplete-list"></ul>
+      <div id="query-results-container">
+        <ul id="query-result-list"></ul>
+      </div>
+    </main>
+  </body>
+</html>
