@@ -91,6 +91,8 @@ function activateAddTagButton(){
       if(autocompleteCache.length){
         addAutocompletionToTagList();
       }
+    }else{
+      applyAutocomplete(); //displays all available tags when input field is empty
     }
   });
 }
