@@ -43,7 +43,7 @@ function loadDatabaseResource(resourceName, maxValidCacheAgeInDays, forceResync)
     //the cached resource list will be updated if it's older than <maxValidCacheAgeInDays> days
     //observe the rate at which new resources are added to adjust the respective validity timeframe of cached resources
     console.log("no valid cached " + resourceName + " found. synchronizing " + resourceName.slice(0, -1) + " list with database / requesting current " + resourceName.slice(0, -1) + " list...");
-    argdbAPIRequest("get/" + resourceName, "", function(apiResponseText, apiResponseStatus, apiResponseStatusText){
+    argdbAPIRequest("api/get/" + resourceName, "", function(apiResponseText, apiResponseStatus, apiResponseStatusText){
       console.log("successfully loaded " + resourceName + " from ARG Database");
       argdb_resources[resourceName] = JSON.parse(apiResponseText).data/*.map(d => d[argdb_databaseResourceNames[resourceName]name])*/.sort(); //implement binary search? //TODO
       //now that the resources are sorted, I could theoretically do some binary search on the list
@@ -98,7 +98,7 @@ function getQueryParameterString(){
 function queryTagged(){
   setQueryIsInProgress();
   hideAdvancedOptions();
-  argdbAPIRequest("get/tagged", getQueryParameterString(), function(apiResponseText){
+  argdbAPIRequest("api/get/tagged", getQueryParameterString(), function(apiResponseText){
     //also make the API query descriptions if existing, but don't display the whole description on the search page (?) //TODO
     //display keywords from the description, so I can finally use the keyword generator
     let responseData = JSON.parse(apiResponseText).data;

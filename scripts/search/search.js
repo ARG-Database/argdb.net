@@ -92,7 +92,7 @@ function activateAddTagButton(){
         addAutocompletionToTagList();
       }
     }else{
-      applyAutocomplete(); //displays all available tags when input field is empty
+      applyAutocomplete(); //displays all available tags if the input field is empty
     }
   });
 }
